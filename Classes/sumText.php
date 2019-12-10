@@ -2,6 +2,7 @@
 class SumText {
     function __construct(){
 		$this->nText = array();
+		$this->nnText = "";
 		$this->ta = array(
 			'0'=>"",
 			'1'=>"bir",
@@ -73,8 +74,12 @@ class SumText {
 		if ($count >= 11){$this->nText[] = $this->tb[$data[$count-11]];}
 		//100.000.000.000
 		if ($count >= 12){$this->nText[] = $this->ta[$data[$count-12]].$this->yuz;}
-		return $this->nText;
+		$nText = array_reverse($this->nText);
+		 foreach($nText as $item){
+			$this->nnText .=' '.$item;
+		 }
+		return $this->nnText;
 	} 
 }
-//$arr = new SumText();
-//print_r($arr->Text(10000010));
+$arr = new SumText();
+echo $arr->Text(104000010);
